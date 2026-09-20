@@ -1,0 +1,292 @@
+import { Student, ClassFilter, HomeworkAssignment, MathSolution } from '../types';
+
+export const CLASS_FILTERS: ClassFilter[] = [
+  { id: 'all', name: 'Tất cả', count: 145, label: 'Tất cả (145 bài)' },
+  { id: '6A1', name: '6A1', count: 18, label: '6A1 18' },
+  { id: '6A2', name: '6A2', count: 20, label: '6A2 20' },
+  { id: '7A1', name: '7A1', count: 16, label: '7A1 16' },
+  { id: '7A2', name: '7A2', count: 19, label: '7A2 19' },
+  { id: '8A1', name: '8A1', count: 22, label: '8A1 22' },
+  { id: '8A2', name: '8A2', count: 18, label: '8A2 18' },
+  { id: '9A1', name: '9A1', count: 15, label: '9A1 15' },
+  { id: '9A2', name: '9A2', count: 17, label: '9A2 17' },
+];
+
+export const INITIAL_STUDENTS: Student[] = [
+  // Top 1 from Image
+  {
+    id: 's1',
+    name: 'Nguyễn Minh Châu',
+    classId: '7A1',
+    school: 'Ngôi sao sáng nhất',
+    rank: 1,
+    score: 10.0,
+    maxScore: 10,
+    submissionsCount: 16,
+    quote: 'Con là một ngôi sao sáng chăm chỉ nhất lớp Toán Cô Tuyết!',
+    badge: 'TOP 1 XUẤT SẮC',
+    stars: 5,
+    note: 'Hoàn thành 100% bài tập nâng cao tuần 24 không sai một câu nào.',
+    avatarIcon: 'trophy',
+  },
+  // Top 2 from Image
+  {
+    id: 's2',
+    name: 'Trần Tuấn Khang',
+    classId: '8A1',
+    school: 'THCS Trọng Điểm',
+    rank: 2,
+    score: 9.8,
+    maxScore: 10,
+    submissionsCount: 15,
+    quote: 'Chăm chỉ giải toán tư duy & tích cực tìm tòi phương pháp mới',
+    badge: 'TOP 2',
+    stars: 5,
+    note: 'Rất sáng tạo trong cách giải bài hình học không gian.',
+    avatarIcon: 'award',
+  },
+  // Top 3 from Image
+  {
+    id: 's3',
+    name: 'Lê Quỳnh Mai',
+    classId: '6A2',
+    school: 'THCS Thực Nghiệm',
+    rank: 3,
+    score: 9.5,
+    maxScore: 10,
+    submissionsCount: 14,
+    quote: 'Rất tích cực luyện tập giải đề nâng cao và tương tác bài học',
+    badge: 'TOP 3',
+    stars: 5,
+    note: 'Luôn nộp bài sớm nhất lớp và trình bày vở sạch chữ đẹp.',
+    avatarIcon: 'medal',
+  },
+  // Sub leaderboard #4 to #7 from Image
+  {
+    id: 's4',
+    name: 'Hoàng Đặng Diệu Linh',
+    classId: '6A1',
+    school: 'THCS Giảng Võ',
+    rank: 4,
+    score: 10.0,
+    maxScore: 10,
+    submissionsCount: 10,
+    quote: 'Chăm chỉ làm bài đúng giờ và ghi chép sơ đồ tư duy cẩn thận.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's5',
+    name: 'Đào Ngọc Lan Anh',
+    classId: '7A2',
+    school: 'THCS Thăng Long',
+    rank: 5,
+    score: 10.0,
+    maxScore: 10,
+    submissionsCount: 12,
+    quote: 'Tự tin phát biểu và giải đề hình học trực tuyến.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's6',
+    name: 'Trần Bảo Yến',
+    classId: '8A1',
+    school: 'THCS Cầu Giấy',
+    rank: 6,
+    score: 10.0,
+    maxScore: 10,
+    submissionsCount: 11,
+    quote: 'Kiên trì rèn luyện chuyên đề phân thức và hằng đẳng thức.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's7',
+    name: 'Vũ Ngọc Ánh',
+    classId: '9A1',
+    school: 'THCS Amsterdam',
+    rank: 7,
+    score: 10.0,
+    maxScore: 10,
+    submissionsCount: 14,
+    quote: 'Quyết tâm thi đỗ trường chuyên lớp chọn với điểm 10 môn Toán.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  // Additional students for classes to make filters rich
+  {
+    id: 's8',
+    name: 'Phạm Gia Huy',
+    classId: '8A2',
+    school: 'THCS Marie Curie',
+    rank: 8,
+    score: 9.6,
+    maxScore: 10,
+    submissionsCount: 13,
+    quote: 'Tư duy logic tốt, nắm vững định lý Ta-lét.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's9',
+    name: 'Nguyễn Bích Phương',
+    classId: '9A2',
+    school: 'THCS Đoàn Thị Điểm',
+    rank: 9,
+    score: 9.5,
+    maxScore: 10,
+    submissionsCount: 15,
+    quote: 'Giải thành thạo hệ phương trình bậc nhất hai ẩn và parabol.',
+    stars: 5,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's10',
+    name: 'Bùi Đức Anh',
+    classId: '6A1',
+    school: 'THCS Chu Văn An',
+    rank: 10,
+    score: 9.4,
+    maxScore: 10,
+    submissionsCount: 11,
+    quote: 'Yêu thích số học và các bài toán chia hết.',
+    stars: 4,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's11',
+    name: 'Phan Thảo Vy',
+    classId: '7A1',
+    school: 'THCS Yên Hòa',
+    rank: 11,
+    score: 9.4,
+    maxScore: 10,
+    submissionsCount: 12,
+    quote: 'Thành thạo tam giác bằng nhau và định lý Pytago.',
+    stars: 4,
+    avatarIcon: 'user-graduate',
+  },
+  {
+    id: 's12',
+    name: 'Lê Hoàng Nam',
+    classId: '8A2',
+    school: 'THCS Trưng Vương',
+    rank: 12,
+    score: 9.2,
+    maxScore: 10,
+    submissionsCount: 10,
+    quote: 'Chăm chỉ nộp bài tự luận đúng hạn.',
+    stars: 4,
+    avatarIcon: 'user-graduate',
+  }
+];
+
+export const HOMEWORK_LIST: HomeworkAssignment[] = [
+  {
+    id: 'hw-24-1',
+    title: 'Phiếu học tập Tuần 24: Định lý Thales trong tam giác',
+    subject: 'Hình học THCS',
+    grade: 8,
+    classId: '8A1',
+    deadline: '23:59 Chủ Nhật (22/09)',
+    totalQuestions: 10,
+    status: 'pending',
+    description: 'Áp dụng định lý Thales thuận và đảo, tính tỉ số đoạn thẳng và chứng minh song song.'
+  },
+  {
+    id: 'hw-24-2',
+    title: 'Chuyên đề 7: Tam giác bằng nhau (c-c-c, c-g-c, g-c-g)',
+    subject: 'Hình học 7',
+    grade: 7,
+    classId: '7A1',
+    deadline: '21:00 Thứ Bảy (21/09)',
+    totalQuestions: 8,
+    status: 'submitted',
+    score: 10.0,
+    description: 'Các dạng bài toán chứng minh 2 đoạn thẳng bằng nhau và 2 góc bằng nhau.'
+  },
+  {
+    id: 'hw-24-3',
+    title: 'Luyện đề thi tuyển sinh vào 10: Rút gọn biểu thức chứa căn',
+    subject: 'Đại số 9',
+    grade: 9,
+    classId: '9A1',
+    deadline: '20:00 Thứ Hai (23/09)',
+    totalQuestions: 5,
+    status: 'pending',
+    description: 'Biểu thức P, tìm x để P < 1/2 và tìm giá trị nguyên của x để P nguyên.'
+  },
+  {
+    id: 'hw-24-4',
+    title: 'Số học 6: Dấu hiệu chia hết cho 2, 3, 5, 9 & Số nguyên tố',
+    subject: 'Toán 6',
+    grade: 6,
+    classId: '6A2',
+    deadline: '22:00 Chủ Nhật (22/09)',
+    totalQuestions: 12,
+    status: 'graded',
+    score: 9.5,
+    description: 'Phân tích một số ra thừa số nguyên tố, tìm ƯCLN và BCNN ứng dụng thực tế.'
+  }
+];
+
+export const MATH_KNOWLEDGE_BASE: Record<string, MathSolution> = {
+  'pythagoras': {
+    question: 'Cho tam giác ABC vuông tại A, biết AB = 6cm, AC = 8cm. Tính độ dài cạnh huyền BC?',
+    topic: 'Định lý Pytago (Hình học 7 & 8)',
+    grade: 'Lớp 7 - 8',
+    steps: [
+      'Áp dụng định lý Pytago vào tam giác ABC vuông tại A:',
+      'Ta có công thức: BC² = AB² + AC²',
+      'Thay số: BC² = 6² + 8² = 36 + 64 = 100',
+      'Suy ra: BC = √100 = 10 (cm)'
+    ],
+    finalAnswer: 'BC = 10 cm',
+    teacherNote: 'Lưu ý của Cô Tuyết: Nhớ kiểm tra đơn vị (cm) và đây là bộ ba số Pytago kinh điển (3 - 4 - 5) nhân đôi!'
+  },
+  'equation': {
+    question: 'Giải phương trình: 2x + 5 = 15',
+    topic: 'Phương trình bậc nhất một ẩn (Toán 8)',
+    grade: 'Lớp 8',
+    steps: [
+      'Phương trình ban đầu: 2x + 5 = 15',
+      'Chuyển số hạng +5 từ vế trái sang vế phải và đổi dấu:',
+      '2x = 15 - 5',
+      '2x = 10',
+      'Chia cả hai vế cho 2: x = 10 / 2',
+      'Kết luận: x = 5'
+    ],
+    finalAnswer: 'x = 5 (Tập nghiệm S = {5})',
+    teacherNote: 'Lưu ý của Cô Tuyết: Khi chuyển vế phải nhớ đổi dấu (+ thành -, - thành +).'
+  },
+  'thales': {
+    question: 'Phát biểu định lý Ta-lét (Thales) trong tam giác và công thức tỉ số?',
+    topic: 'Định lý Ta-lét (Toán 8)',
+    grade: 'Lớp 8',
+    steps: [
+      'Định lý: Nếu một đường thẳng song song với một cạnh của tam giác và cắt hai cạnh còn lại thì nó định ra trên hai cạnh đó những đoạn thẳng tương ứng tỉ lệ.',
+      'Giả thiết: Tam giác ABC, đường thẳng d // BC cắt AB tại B\' và cắt AC tại C\'.',
+      'Kết luận hệ thức tỉ lệ:',
+      '• AB\' / AB = AC\' / AC',
+      '• AB\' / B\'B = AC\' / C\'C',
+      '• B\'B / AB = C\'C / AC'
+    ],
+    finalAnswer: 'AB\' / AB = AC\' / AC (kèm các biến thể đảo và hệ quả)',
+    teacherNote: 'Lưu ý của Cô Tuyết: Phải luôn chỉ ra điều kiện B\'C\' // BC trước khi áp dụng định lý Ta-lét nhé!'
+  },
+  'rutgon': {
+    question: 'Rút gọn phân thức: A = (x² - 4) / (x - 2) với x ≠ 2',
+    topic: 'Hằng đẳng thức & Phân thức đại số (Toán 8 & 9)',
+    grade: 'Lớp 8 - 9',
+    steps: [
+      'Điều kiện xác định: x ≠ 2',
+      'Nhận xét tử thức là hằng đẳng thức hiệu hai bình phương: x² - 4 = (x - 2)(x + 2)',
+      'Viết lại biểu thức: A = [(x - 2)(x + 2)] / (x - 2)',
+      'Triệt tiêu nhân tử chung (x - 2) ở cả tử và mẫu:',
+      'A = x + 2'
+    ],
+    finalAnswer: 'A = x + 2 (với điều kiện x ≠ 2)',
+    teacherNote: 'Lưu ý của Cô Tuyết: Không được quên đặt điều kiện xác định trước khi triệt tiêu phân thức!'
+  }
+};

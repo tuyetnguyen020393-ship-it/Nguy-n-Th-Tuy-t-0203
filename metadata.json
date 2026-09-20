@@ -1,0 +1,6 @@
+{
+  "name": "Website Lớp Học Cô Tuyết Toán",
+  "description": "Hệ Thống Dạy & Học Toán THCS Thông Minh - Bảng Vàng Danh Dự & Trợ Lý Toán Học AI Cô Tuyết",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
